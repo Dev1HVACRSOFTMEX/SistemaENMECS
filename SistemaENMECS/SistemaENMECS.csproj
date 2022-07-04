@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7328BB8B-6756-47E8-89FF-B4461745D8A1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SistemaENMECS</RootNamespace>
+    <AssemblyName>SistemaENMECS</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\itextsharp\itextsharp-5.5.13.1\src\core\bin\Debug_woDrawing\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Excel\15.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\BLL.cs" />
+    <Compile Include="BLL\Cotizacion.cs" />
+    <Compile Include="BLL\PageEventHelper.cs" />
+    <Compile Include="BLL\Partida.cs" />
+    <Compile Include="DAL\CargaDB.cs" />
+    <Compile Include="DAL\DAL_SQL.cs" />
+    <Compile Include="BLL\Estructuras.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Articulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Articulo.Designer.cs">
+      <DependentUpon>Articulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Categoria.Designer.cs">
+      <DependentUpon>Categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Concepto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Concepto.Designer.cs">
+      <DependentUpon>Concepto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Configuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Configuracion.Designer.cs">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Contacto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Contacto.Designer.cs">
+      <DependentUpon>Contacto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Directorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Directorio.Designer.cs">
+      <DependentUpon>Directorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocCotConcepto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DocCotConcepto.Designer.cs">
+      <DependentUpon>DocCotConcepto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocCotCuerpo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DocCotCuerpo.Designer.cs">
+      <DependentUpon>DocCotCuerpo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocCotizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DocCotizacion.Designer.cs">
+      <DependentUpon>DocCotizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocCotNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DocCotNota.Designer.cs">
+      <DependentUpon>DocCotNota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DocCotPartida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DocCotPartida.Designer.cs">
+      <DependentUpon>DocCotPartida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Empresa.Designer.cs">
+      <DependentUpon>Empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Especificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Especificacion.Designer.cs">
+      <DependentUpon>Especificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListaArtCli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ListaArtCli.Designer.cs">
+      <DependentUpon>ListaArtCli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListaArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ListaArticulo.Designer.cs">
+      <DependentUpon>ListaArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListaCarpeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ListaCarpeta.Designer.cs">
+      <DependentUpon>ListaCarpeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListaCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ListaCategoria.Designer.cs">
+      <DependentUpon>ListaCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListaCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ListaCodigo.Designer.cs">
+      <DependentUpon>ListaCodigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListaConcepto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ListaConcepto.Designer.cs">
+      <DependentUpon>ListaConcepto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListaDirectorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ListaDirectorio.Designer.cs">
+      <DependentUpon>ListaDirectorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListaDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ListaDocumento.Designer.cs">
+      <DependentUpon>ListaDocumento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListaNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ListaNota.Designer.cs">
+      <DependentUpon>ListaNota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ListaPago.Designer.cs">
+      <DependentUpon>ListaPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListaPlantilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ListaPlantilla.Designer.cs">
+      <DependentUpon>ListaPlantilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListaProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ListaProyecto.Designer.cs">
+      <DependentUpon>ListaProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ListaUsuario.Designer.cs">
+      <DependentUpon>ListaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Nota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Nota.Designer.cs">
+      <DependentUpon>Nota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Pago.Designer.cs">
+      <DependentUpon>Pago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Plantilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Plantilla.Designer.cs">
+      <DependentUpon>Plantilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Proyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Proyecto.Designer.cs">
+      <DependentUpon>Proyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SeekArticuloLP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SeekArticuloLP.Designer.cs">
+      <DependentUpon>SeekArticuloLP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SeekArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SeekArticulo.Designer.cs">
+      <DependentUpon>SeekArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SeekDirectorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SeekDirectorio.Designer.cs">
+      <DependentUpon>SeekDirectorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SeekDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SeekDocumento.Designer.cs">
+      <DependentUpon>SeekDocumento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SeekEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SeekEmpresa.Designer.cs">
+      <DependentUpon>SeekEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SeekPartida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SeekPartida.Designer.cs">
+      <DependentUpon>SeekPartida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SeekPartidaDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SeekPartidaDoc.Designer.cs">
+      <DependentUpon>SeekPartidaDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SeekPlantilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SeekPlantilla.Designer.cs">
+      <DependentUpon>SeekPlantilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SeekProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SeekProyecto.Designer.cs">
+      <DependentUpon>SeekProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SeekTipoCambio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SeekTipoCambio.Designer.cs">
+      <DependentUpon>SeekTipoCambio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SelectConcepto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SelectConcepto.Designer.cs">
+      <DependentUpon>SelectConcepto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Texto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Texto.Designer.cs">
+      <DependentUpon>Texto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TextoEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\TextoEdit.Designer.cs">
+      <DependentUpon>TextoEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TipoCambio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\TipoCambio.Designer.cs">
+      <DependentUpon>TipoCambio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Usuario.Designer.cs">
+      <DependentUpon>Usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Ventas.Designer.cs">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Articulo.resx">
+      <DependentUpon>Articulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Categoria.resx">
+      <DependentUpon>Categoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Concepto.resx">
+      <DependentUpon>Concepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Configuracion.resx">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Contacto.resx">
+      <DependentUpon>Contacto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Directorio.resx">
+      <DependentUpon>Directorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DocCotConcepto.resx">
+      <DependentUpon>DocCotConcepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DocCotCuerpo.resx">
+      <DependentUpon>DocCotCuerpo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DocCotizacion.resx">
+      <DependentUpon>DocCotizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DocCotNota.resx">
+      <DependentUpon>DocCotNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DocCotPartida.resx">
+      <DependentUpon>DocCotPartida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Empresa.resx">
+      <DependentUpon>Empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Especificacion.resx">
+      <DependentUpon>Especificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ListaArtCli.resx">
+      <DependentUpon>ListaArtCli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ListaArticulo.resx">
+      <DependentUpon>ListaArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ListaCarpeta.resx">
+      <DependentUpon>ListaCarpeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ListaCategoria.resx">
+      <DependentUpon>ListaCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ListaCodigo.resx">
+      <DependentUpon>ListaCodigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ListaConcepto.resx">
+      <DependentUpon>ListaConcepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ListaDirectorio.resx">
+      <DependentUpon>ListaDirectorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ListaDocumento.resx">
+      <DependentUpon>ListaDocumento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ListaNota.resx">
+      <DependentUpon>ListaNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ListaPago.resx">
+      <DependentUpon>ListaPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ListaPlantilla.resx">
+      <DependentUpon>ListaPlantilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ListaProyecto.resx">
+      <DependentUpon>ListaProyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ListaUsuario.resx">
+      <DependentUpon>ListaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Nota.resx">
+      <DependentUpon>Nota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Pago.resx">
+      <DependentUpon>Pago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Plantilla.resx">
+      <DependentUpon>Plantilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Proyecto.resx">
+      <DependentUpon>Proyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SeekArticuloLP.resx">
+      <DependentUpon>SeekArticuloLP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SeekArticulo.resx">
+      <DependentUpon>SeekArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SeekDirectorio.resx">
+      <DependentUpon>SeekDirectorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SeekDocumento.resx">
+      <DependentUpon>SeekDocumento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SeekEmpresa.resx">
+      <DependentUpon>SeekEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SeekPartida.resx">
+      <DependentUpon>SeekPartida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SeekPartidaDoc.resx">
+      <DependentUpon>SeekPartidaDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SeekPlantilla.resx">
+      <DependentUpon>SeekPlantilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SeekProyecto.resx">
+      <DependentUpon>SeekProyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SeekTipoCambio.resx">
+      <DependentUpon>SeekTipoCambio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SelectConcepto.resx">
+      <DependentUpon>SelectConcepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Texto.resx">
+      <DependentUpon>Texto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TextoEdit.resx">
+      <DependentUpon>TextoEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TipoCambio.resx">
+      <DependentUpon>TipoCambio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Usuario.resx">
+      <DependentUpon>Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Ventas.resx">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Imagenes\CarpetaAbierta.png" />
+    <Content Include="Imagenes\CarpetaAbiertaGrande.png" />
+    <Content Include="Imagenes\CarpetaCerrada.png" />
+    <Content Include="Imagenes\HechoMexico.png" />
+    <Content Include="Imagenes\logo_bk.png" />
+    <None Include="Resources\find_16.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\sistema.jpg" />
+    <None Include="Resources\edit_16.png" />
+    <None Include="Resources\accept_16.png" />
+    <None Include="Resources\cancel_16.png" />
+    <None Include="Resources\send_16.png" />
+    <None Include="Resources\save_16.png" />
+    <None Include="Resources\find.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

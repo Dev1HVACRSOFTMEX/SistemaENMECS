@@ -52,6 +52,8 @@
             this.lblLey4 = new System.Windows.Forms.Label();
             this.txtLey4 = new System.Windows.Forms.TextBox();
             this.gbAsoCarp = new System.Windows.Forms.GroupBox();
+            this.cbCrCot = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbAsoCarp.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,6 +174,7 @@
             this.cbGrCot.FormattingEnabled = true;
             resources.ApplyResources(this.cbGrCot, "cbGrCot");
             this.cbGrCot.Name = "cbGrCot";
+            this.cbGrCot.SelectedIndexChanged += new System.EventHandler(this.cbGrCot_SelectedIndexChanged);
             // 
             // lblLey4
             // 
@@ -186,6 +189,8 @@
             // 
             // gbAsoCarp
             // 
+            this.gbAsoCarp.Controls.Add(this.cbCrCot);
+            this.gbAsoCarp.Controls.Add(this.label1);
             this.gbAsoCarp.Controls.Add(this.cbGcIdent);
             this.gbAsoCarp.Controls.Add(this.lblGrupo);
             this.gbAsoCarp.Controls.Add(this.lblGrCot);
@@ -193,6 +198,18 @@
             resources.ApplyResources(this.gbAsoCarp, "gbAsoCarp");
             this.gbAsoCarp.Name = "gbAsoCarp";
             this.gbAsoCarp.TabStop = false;
+            // 
+            // cbCrCot
+            // 
+            this.cbCrCot.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(126)))), ((int)(((byte)(147)))));
+            this.cbCrCot.FormattingEnabled = true;
+            resources.ApplyResources(this.cbCrCot, "cbCrCot");
+            this.cbCrCot.Name = "cbCrCot";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // Empresa
             // 
@@ -257,5 +274,7 @@
         private System.Windows.Forms.Label lblLey4;
         private System.Windows.Forms.TextBox txtLey4;
         private System.Windows.Forms.GroupBox gbAsoCarp;
+        private System.Windows.Forms.ComboBox cbCrCot;
+        private System.Windows.Forms.Label label1;
     }
 }

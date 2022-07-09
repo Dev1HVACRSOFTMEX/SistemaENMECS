@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using SistemaENMECS.BLL;
+using System.Configuration;
 
 namespace SistemaENMECS.DAL
 {
@@ -13,7 +14,7 @@ namespace SistemaENMECS.DAL
     {
         //private string connectionString = "Data Source=SISTEMAS-PC;Initial Catalog = crmInterno; User ID=sa;Password=3nm3c5";
         //private string connectionString = "Data Source=VENTAS\\SQLEXPRESS;Initial Catalog = crmInterno; User ID=sa;Password=3nm3c5";
-        private string connectionString = "Data Source=DESKTOP-926DOLQ\\SQLEXPRESS;Initial Catalog = crmInterno; User ID=sa;Password=3nm3c5";
+        private string connectionString = ConfigurationManager.ConnectionStrings["SQL_MiConexion"].ConnectionString;
         //private string connectionString = "Data Source=DESKTOP-VA8PNGH\\SQLEXPRESS;Initial Catalog = crmInterno; User ID=sa;Password=3nm3c5";
         
         public string error { get; set; }
@@ -2141,7 +2142,9 @@ namespace SistemaENMECS.DAL
                     cmd.Parameters.AddWithValue("@EmPrefijo", empresa.EmPrefijo);
                     cmd.Parameters.AddWithValue("@EmPrefijoPry", empresa.EmPrefijoPry);
                     cmd.Parameters.AddWithValue("@EmGrIdent", empresa.EmGrIdent);
+                    cmd.Parameters.AddWithValue("@EmCrIdent", empresa.EmCrIdent);
                     cmd.Parameters.AddWithValue("@EmGrIdCot", empresa.EmGrIdCot);
+                    cmd.Parameters.AddWithValue("@EmCrIdCot", empresa.EmCrIdCot);
                     cmd.Parameters.AddWithValue("@EmActivo", empresa.EmActivo);
                     cmd.Parameters.AddWithValue("@EmAudUsuCre", empresa.EmAudUsuCre);
                     cmd.Parameters.AddWithValue("@EmAudFeCre", empresa.EmAudFeCre);
@@ -2185,7 +2188,9 @@ namespace SistemaENMECS.DAL
                         cmd.Parameters.AddWithValue("@EmPrefijo", empresa.EmPrefijo);
                         cmd.Parameters.AddWithValue("@EmPrefijoPry", empresa.EmPrefijoPry);
                         cmd.Parameters.AddWithValue("@EmGrIdent", empresa.EmGrIdent);
+                        cmd.Parameters.AddWithValue("@EmCrIdent", empresa.EmCrIdent);
                         cmd.Parameters.AddWithValue("@EmGrIdCot", empresa.EmGrIdCot);
+                        cmd.Parameters.AddWithValue("@EmCrIdCot", empresa.EmCrIdCot);
                         cmd.Parameters.AddWithValue("@EmActivo", empresa.EmActivo);
                         cmd.Parameters.AddWithValue("@EmAudUsuMod", empresa.EmAudUsuMod);
                         cmd.Parameters.AddWithValue("@EmAudFeMod", empresa.EmAudFeMod);
@@ -2246,14 +2251,16 @@ namespace SistemaENMECS.DAL
                         item.EmPrefijo = Convert.ToString(ds.Tables[0].Rows[i][9]);
                         item.EmPrefijoPry = Convert.ToString(ds.Tables[0].Rows[i][10]);
                         item.EmGrIdent = Convert.ToString(ds.Tables[0].Rows[i][11]);
-                        item.EmGrIdCot = Convert.ToString(ds.Tables[0].Rows[i][12]);
-                        item.EmActivo = Convert.ToString(ds.Tables[0].Rows[i][13]);
-                        item.EmAudUsuCre = Convert.ToString(ds.Tables[0].Rows[i][14]);
-                        item.EmAudFeCre = ds.Tables[0].Rows[i][15].ToString() == "" ? item.EmAudFeCre : Convert.ToDateTime(ds.Tables[0].Rows[i][15]);
-                        item.EmAudUsuMod = Convert.ToString(ds.Tables[0].Rows[i][16]);
-                        item.EmAudFeMod = ds.Tables[0].Rows[i][17].ToString() == "" ? item.EmAudFeMod : Convert.ToDateTime(ds.Tables[0].Rows[i][17]);
-                        item.EmAudUsuEl = Convert.ToString(ds.Tables[0].Rows[i][18]);
-                        item.EmAudFeEl = ds.Tables[0].Rows[i][19].ToString() == "" ? item.EmAudFeEl : Convert.ToDateTime(ds.Tables[0].Rows[i][19]);
+                        item.EmCrIdent = Convert.ToString(ds.Tables[0].Rows[i][12]);
+                        item.EmGrIdCot = Convert.ToString(ds.Tables[0].Rows[i][13]);
+                        item.EmCrIdCot = Convert.ToString(ds.Tables[0].Rows[i][14]);
+                        item.EmActivo = Convert.ToString(ds.Tables[0].Rows[i][15]);
+                        item.EmAudUsuCre = Convert.ToString(ds.Tables[0].Rows[i][16]);
+                        item.EmAudFeCre = ds.Tables[0].Rows[i][17].ToString() == "" ? item.EmAudFeCre : Convert.ToDateTime(ds.Tables[0].Rows[i][17]);
+                        item.EmAudUsuMod = Convert.ToString(ds.Tables[0].Rows[i][18]);
+                        item.EmAudFeMod = ds.Tables[0].Rows[i][19].ToString() == "" ? item.EmAudFeMod : Convert.ToDateTime(ds.Tables[0].Rows[i][19]);
+                        item.EmAudUsuEl = Convert.ToString(ds.Tables[0].Rows[i][20]);
+                        item.EmAudFeEl = ds.Tables[0].Rows[i][21].ToString() == "" ? item.EmAudFeEl : Convert.ToDateTime(ds.Tables[0].Rows[i][21]);
                     }
                 }
             }
@@ -2300,14 +2307,16 @@ namespace SistemaENMECS.DAL
                         item.EmPrefijo = Convert.ToString(ds.Tables[0].Rows[i][9]);
                         item.EmPrefijoPry = Convert.ToString(ds.Tables[0].Rows[i][10]);
                         item.EmGrIdent = Convert.ToString(ds.Tables[0].Rows[i][11]);
-                        item.EmGrIdCot = Convert.ToString(ds.Tables[0].Rows[i][12]);
-                        item.EmActivo = Convert.ToString(ds.Tables[0].Rows[i][13]);
-                        item.EmAudUsuCre = Convert.ToString(ds.Tables[0].Rows[i][14]);
-                        item.EmAudFeCre = ds.Tables[0].Rows[i][15].ToString() == "" ? item.EmAudFeCre : Convert.ToDateTime(ds.Tables[0].Rows[i][15]);
-                        item.EmAudUsuMod = Convert.ToString(ds.Tables[0].Rows[i][16]);
-                        item.EmAudFeMod = ds.Tables[0].Rows[i][17].ToString() == "" ? item.EmAudFeMod : Convert.ToDateTime(ds.Tables[0].Rows[i][17]);
-                        item.EmAudUsuEl = Convert.ToString(ds.Tables[0].Rows[i][18]);
-                        item.EmAudFeEl = ds.Tables[0].Rows[i][19].ToString() == "" ? item.EmAudFeEl : Convert.ToDateTime(ds.Tables[0].Rows[i][19]);
+                        item.EmCrIdent = Convert.ToString(ds.Tables[0].Rows[i][12]);
+                        item.EmGrIdCot = Convert.ToString(ds.Tables[0].Rows[i][13]);
+                        item.EmCrIdCot = Convert.ToString(ds.Tables[0].Rows[i][14]);
+                        item.EmActivo = Convert.ToString(ds.Tables[0].Rows[i][15]);
+                        item.EmAudUsuCre = Convert.ToString(ds.Tables[0].Rows[i][16]);
+                        item.EmAudFeCre = ds.Tables[0].Rows[i][17].ToString() == "" ? item.EmAudFeCre : Convert.ToDateTime(ds.Tables[0].Rows[i][17]);
+                        item.EmAudUsuMod = Convert.ToString(ds.Tables[0].Rows[i][18]);
+                        item.EmAudFeMod = ds.Tables[0].Rows[i][19].ToString() == "" ? item.EmAudFeMod : Convert.ToDateTime(ds.Tables[0].Rows[i][19]);
+                        item.EmAudUsuEl = Convert.ToString(ds.Tables[0].Rows[i][20]);
+                        item.EmAudFeEl = ds.Tables[0].Rows[i][21].ToString() == "" ? item.EmAudFeEl : Convert.ToDateTime(ds.Tables[0].Rows[i][21]);
                         lista.Add(item);
                     }
                 }

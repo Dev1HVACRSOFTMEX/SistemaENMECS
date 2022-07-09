@@ -19,7 +19,9 @@ namespace SistemaENMECS.UI
             InitializeComponent();
         }
 
-        private void btnCfg_Click(object sender, EventArgs e)
+        
+
+        private void btnGeneral_Click(object sender, EventArgs e)
         {
             /*Configuracion ventana = new Configuracion();
             ventana.ShowDialog();*/
@@ -124,46 +126,85 @@ namespace SistemaENMECS.UI
             AbrirForm(new ListaCarpeta());
         }
 
-        private void Admin_Load(object sender, EventArgs e)
+        private void btnMoneda_Click(object sender, EventArgs e)
         {
-            ancla.X = 20;
-            ancla.Y = 250;
 
-            subDir.Visible = false;
-            subCat.Visible = false;
-
-            Point loc = ancla;
-            btnTiC.Location = loc;
-            pTipC.Location = loc;
-            loc.Y += pTipC.Size.Height;
-            btnCatalogo.Location = loc;
-            pCatal.Location = loc;
         }
 
-        private void btnDirectorio_Click(object sender, EventArgs e)
+        private void Admin_Load(object sender, EventArgs e)
+        {
+            ancla.X = subCfg.Location.X;
+            ancla.Y = subCfg.Location.Y;
+
+            subCfg.Visible = false;
+            subCat.Visible = false;
+            subDir.Visible = false;
+            subAdmin.Visible = false;
+            subCrear.Visible = false;
+            
+            Point loc = ancla;
+            btnDirectorio.Location = loc;
+            pDir.Location = loc;
+            
+            loc.Y += btnDirectorio.Size.Height;
+            btnTiC.Location = loc;
+            pTipC.Location = loc;
+            
+            loc.Y += btnTiC.Size.Height;
+            btnAdmin.Location = loc;
+            pAdmin.Location = loc;
+
+            loc.Y += btnAdmin.Size.Height;
+            btnCrear.Location = loc;
+            pCrear.Location = loc;
+        }
+
+        private void btnCfg_Click(object sender, EventArgs e)
         {
             Point loc = ancla;
-            if (subDir.Visible)
+            if (subCfg.Visible)
             {
-                subDir.Visible = false;
-                
+                subCfg.Visible = false;
+
+                btnDirectorio.Location = loc;
+                pDir.Location = loc;
+
+                loc.Y += btnDirectorio.Size.Height;
                 btnTiC.Location = loc;
                 pTipC.Location = loc;
-                loc.Y += pTipC.Size.Height;
-                btnCatalogo.Location = loc;
-                pCatal.Location = loc;
+
+                loc.Y += btnTiC.Size.Height;
+                btnAdmin.Location = loc;
+                pAdmin.Location = loc;
+
+                loc.Y += btnAdmin.Size.Height;
+                btnCrear.Location = loc;
+                pCrear.Location = loc;
             }
             else
             {
-                subDir.Visible = true;
+                subCfg.Visible = true;
                 subCat.Visible = false;
-                
-                loc.Y += subDir.Size.Height;
+                subDir.Visible = false;
+                subAdmin.Visible = false;
+                subCrear.Visible = false;
+
+                loc.Y += pGral.Size.Height + pCatal.Size.Height;
+
+                btnDirectorio.Location = loc;
+                pDir.Location = loc;
+
+                loc.Y += btnDirectorio.Size.Height;
                 btnTiC.Location = loc;
                 pTipC.Location = loc;
-                loc.Y += pTipC.Size.Height;
-                btnCatalogo.Location = loc;
-                pCatal.Location = loc;
+
+                loc.Y += btnTiC.Size.Height;
+                btnAdmin.Location = loc;
+                pAdmin.Location = loc;
+
+                loc.Y += btnAdmin.Size.Height;
+                btnCrear.Location = loc;
+                pCrear.Location = loc;
             }
         }
 
@@ -173,26 +214,205 @@ namespace SistemaENMECS.UI
             if (subCat.Visible)
             {
                 subCat.Visible = false;
-                
+
+                loc.Y += pGral.Size.Height + pCatal.Size.Height;
+
+                btnDirectorio.Location = loc;
+                pDir.Location = loc;
+
+                loc.Y += btnDirectorio.Size.Height;
                 btnTiC.Location = loc;
                 pTipC.Location = loc;
-                loc.Y += pTipC.Size.Height;
-                btnCatalogo.Location = loc;
-                pCatal.Location = loc;
+
+                loc.Y += btnTiC.Size.Height;
+                btnAdmin.Location = loc;
+                pAdmin.Location = loc;
+
+                loc.Y += btnAdmin.Size.Height;
+                btnCrear.Location = loc;
+                pCrear.Location = loc;
             }
             else
             {
+                subCfg.Visible = true;
                 subCat.Visible = true;
                 subDir.Visible = false;
+                subAdmin.Visible = false;
+                subCrear.Visible = false;
 
+                loc.Y = btnGeneral.Location.Y;
+
+                loc.Y += pGral.Size.Height + pCatal.Size.Height;
+                loc.X += 15;
+                subCat.Location = loc;
+
+                loc.Y += subCat.Size.Height + btnCfg.Location.Y + btnCfg.Size.Height;
+                loc.X -= 15;
+                btnDirectorio.Location = loc;
+                pDir.Location = loc;
+
+                loc.Y += btnDirectorio.Size.Height;
                 btnTiC.Location = loc;
                 pTipC.Location = loc;
-                loc.Y += pTipC.Size.Height;
-                btnCatalogo.Location = loc;
-                pCatal.Location = loc;
-                loc = btnCatalogo.Location;
-                loc.Y += btnCatalogo.Size.Height;
-                subCat.Location = loc;
+
+                loc.Y += btnTiC.Size.Height;
+                btnAdmin.Location = loc;
+                pAdmin.Location = loc;
+
+                loc.Y += btnAdmin.Size.Height;
+                btnCrear.Location = loc;
+                pCrear.Location = loc;
+            }
+        }
+        
+        private void btnDirectorio_Click(object sender, EventArgs e)
+        {
+            Point loc = ancla;
+            if (subDir.Visible)
+            {
+                subDir.Visible = false;
+
+                btnDirectorio.Location = loc;
+                pDir.Location = loc;
+
+                loc.Y += btnDirectorio.Size.Height;
+                btnTiC.Location = loc;
+                pTipC.Location = loc;
+
+                loc.Y += btnTiC.Size.Height;
+                btnAdmin.Location = loc;
+                pAdmin.Location = loc;
+
+                loc.Y += btnAdmin.Size.Height;
+                btnCrear.Location = loc;
+                pCrear.Location = loc;
+            }
+            else
+            {
+                subCfg.Visible = false;
+                subCat.Visible = false;
+                subDir.Visible = true;
+                subAdmin.Visible = false;
+                subCrear.Visible = false;
+
+                btnDirectorio.Location = loc;
+                pDir.Location = loc;
+
+                loc.Y += btnDirectorio.Size.Height;
+                subDir.Location = loc;
+
+                loc.Y += subDir.Size.Height;
+                btnTiC.Location = loc;
+                pTipC.Location = loc;
+
+                loc.Y += btnTiC.Size.Height;
+                btnAdmin.Location = loc;
+                pAdmin.Location = loc;
+
+                loc.Y += btnAdmin.Size.Height;
+                btnCrear.Location = loc;
+                pCrear.Location = loc;
+
+            }
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            Point loc = ancla;
+            if (subAdmin.Visible)
+            {
+                subAdmin.Visible = false;
+
+                btnDirectorio.Location = loc;
+                pDir.Location = loc;
+
+                loc.Y += btnDirectorio.Size.Height;
+                btnTiC.Location = loc;
+                pTipC.Location = loc;
+
+                loc.Y += btnTiC.Size.Height;
+                btnAdmin.Location = loc;
+                pAdmin.Location = loc;
+
+                loc.Y += btnAdmin.Size.Height;
+                btnCrear.Location = loc;
+                pCrear.Location = loc;
+            }
+            else
+            {
+                subCfg.Visible = false;
+                subCat.Visible = false;
+                subDir.Visible = false;
+                subAdmin.Visible = true;
+                subCrear.Visible = false;
+
+                btnDirectorio.Location = loc;
+                pDir.Location = loc;
+
+                loc.Y += btnDirectorio.Size.Height;
+                btnTiC.Location = loc;
+                pTipC.Location = loc;
+
+                loc.Y += btnTiC.Size.Height;
+                btnAdmin.Location = loc;
+                pAdmin.Location = loc;
+
+                loc.Y += btnAdmin.Size.Height;
+                subAdmin.Location = loc;
+
+                loc.Y += subAdmin.Size.Height;
+                btnCrear.Location = loc;
+                pCrear.Location = loc;
+            }
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            Point loc = ancla;
+            if (subCrear.Visible)
+            {
+                subCrear.Visible = false;
+
+                btnDirectorio.Location = loc;
+                pDir.Location = loc;
+
+                loc.Y += btnDirectorio.Size.Height;
+                btnTiC.Location = loc;
+                pTipC.Location = loc;
+
+                loc.Y += btnTiC.Size.Height;
+                btnAdmin.Location = loc;
+                pAdmin.Location = loc;
+
+                loc.Y += btnAdmin.Size.Height;
+                btnCrear.Location = loc;
+                pCrear.Location = loc;
+            }
+            else
+            {
+                subCfg.Visible = false;
+                subCat.Visible = false;
+                subDir.Visible = false;
+                subAdmin.Visible = false;
+                subCrear.Visible = true;
+
+                btnDirectorio.Location = loc;
+                pDir.Location = loc;
+
+                loc.Y += btnDirectorio.Size.Height;
+                btnTiC.Location = loc;
+                pTipC.Location = loc;
+
+                loc.Y += btnTiC.Size.Height;
+                btnAdmin.Location = loc;
+                pAdmin.Location = loc;
+
+                loc.Y += btnAdmin.Size.Height;
+                btnCrear.Location = loc;
+                pCrear.Location = loc;
+
+                loc.Y += btnCrear.Size.Height;
+                subCrear.Location = loc;
             }
         }
 
@@ -206,6 +426,11 @@ namespace SistemaENMECS.UI
             this.panelContenedor.Controls.Add(fh);
             this.panelContenedor.Tag = fh;
             fh.Show();
+        }
+
+        private void Form_Closing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

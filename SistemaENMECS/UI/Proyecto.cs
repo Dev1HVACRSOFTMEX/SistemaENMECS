@@ -66,7 +66,7 @@ namespace SistemaENMECS.UI
             directorio.DiNombreCom = "";
             directorio.listado();
 
-            configuracion.CgIdent = "CFG01";
+            configuracion.CgIdent = usuarioCache.idConfig;
             configuracion.consultaUno();
 
             empresa.EmIdent = "";
@@ -157,6 +157,10 @@ namespace SistemaENMECS.UI
             }
             if (i > 1)
                 cbObjetivo.SelectedIndex = 0;
+
+            cbTipoSis.Items.Clear();
+            cbTipoSis.Items.Insert(0, "<Seleccionar>");
+            cbTipoSis.SelectedIndex = 0;
 
             i = 1;
             cbLugar.Items.Clear();
@@ -460,7 +464,7 @@ namespace SistemaENMECS.UI
             part = cbEstatus.SelectedIndex < 1 ? "" : estatus.listCod[cbEstatus.SelectedIndex - 1].CdTipo.ToLower().Trim();
             nombre += part == "" ? "" : part.Substring(0, 1).ToUpper() + part.Substring(1);
             txtNombre.Text = nombre.Trim();
-            txtNomCarp.Text = "P:\\" + (cbEmpresa.SelectedIndex < 1 ? "" : empresa.listEmp[cbEmpresa.SelectedIndex - 1].EmPrefijoPry.Trim()) + nombre.Trim();
+            txtNomCarp.Text = configuracion.CgPathPry + (cbEmpresa.SelectedIndex < 1 ? "" : empresa.listEmp[cbEmpresa.SelectedIndex - 1].EmPrefijoPry.Trim()) + nombre.Trim();
         }
 
         private void checkListCPry_ItemCheck(object sender, ItemCheckEventArgs e)

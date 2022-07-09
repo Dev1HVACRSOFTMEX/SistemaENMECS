@@ -51,7 +51,7 @@ namespace SistemaENMECS.UI
 
             plantilla.PaIdent = "";
             plantilla.listado();
-            configuracion.CgIdent = "CONFIG01";
+            configuracion.CgIdent = usuarioCache.idConfig;
             string res = configuracion.consultaUno();
             if (res == "" & configuracion.CgIdent != null)
                 m = modo.update;

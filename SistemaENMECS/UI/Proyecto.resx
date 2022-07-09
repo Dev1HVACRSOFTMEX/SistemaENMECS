@@ -720,6 +720,21 @@
   <data name="&gt;&gt;tabNom.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="lblCCot.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblCCot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>375, 3</value>
+  </data>
+  <data name="lblCCot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 15</value>
+  </data>
+  <data name="lblCCot.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblCCot.Text" xml:space="preserve">
+    <value>COTIZACION</value>
+  </data>
   <data name="&gt;&gt;lblCCot.Name" xml:space="preserve">
     <value>lblCCot</value>
   </data>
@@ -731,6 +746,15 @@
   </data>
   <data name="&gt;&gt;lblCCot.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="checkListCCot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>378, 22</value>
+  </data>
+  <data name="checkListCCot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 148</value>
+  </data>
+  <data name="checkListCCot.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;checkListCCot.Name" xml:space="preserve">
     <value>checkListCCot</value>
@@ -744,6 +768,21 @@
   <data name="&gt;&gt;checkListCCot.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="lblCPry.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblCPry.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 3</value>
+  </data>
+  <data name="lblCPry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 15</value>
+  </data>
+  <data name="lblCPry.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblCPry.Text" xml:space="preserve">
+    <value>PROYECTO</value>
+  </data>
   <data name="&gt;&gt;lblCPry.Name" xml:space="preserve">
     <value>lblCPry</value>
   </data>
@@ -755,6 +794,15 @@
   </data>
   <data name="&gt;&gt;lblCPry.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="checkListCPry.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 22</value>
+  </data>
+  <data name="checkListCPry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 148</value>
+  </data>
+  <data name="checkListCPry.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;checkListCPry.Name" xml:space="preserve">
     <value>checkListCPry</value>
@@ -794,15 +842,6 @@
   </data>
   <data name="&gt;&gt;tabCar.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="dgDoc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 29</value>
-  </data>
-  <data name="dgDoc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>740, 150</value>
-  </data>
-  <data name="dgDoc.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;dgDoc.Name" xml:space="preserve">
     <value>dgDoc</value>
@@ -915,101 +954,26 @@
   <data name="&gt;&gt;lblLugar.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="lblCCot.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="dgDoc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 29</value>
   </data>
-  <data name="lblCCot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>375, 3</value>
+  <data name="dgDoc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>740, 150</value>
   </data>
-  <data name="lblCCot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 15</value>
-  </data>
-  <data name="lblCCot.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="lblCCot.Text" xml:space="preserve">
-    <value>COTIZACION</value>
-  </data>
-  <data name="&gt;&gt;lblCCot.Name" xml:space="preserve">
-    <value>lblCCot</value>
-  </data>
-  <data name="&gt;&gt;lblCCot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblCCot.Parent" xml:space="preserve">
-    <value>tabCar</value>
-  </data>
-  <data name="&gt;&gt;lblCCot.ZOrder" xml:space="preserve">
+  <data name="dgDoc.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="checkListCCot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>378, 22</value>
+  <data name="&gt;&gt;dgDoc.Name" xml:space="preserve">
+    <value>dgDoc</value>
   </data>
-  <data name="checkListCCot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 148</value>
+  <data name="&gt;&gt;dgDoc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="checkListCCot.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;dgDoc.Parent" xml:space="preserve">
+    <value>tabCot</value>
   </data>
-  <data name="&gt;&gt;checkListCCot.Name" xml:space="preserve">
-    <value>checkListCCot</value>
-  </data>
-  <data name="&gt;&gt;checkListCCot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkListCCot.Parent" xml:space="preserve">
-    <value>tabCar</value>
-  </data>
-  <data name="&gt;&gt;checkListCCot.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblCPry.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblCPry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 3</value>
-  </data>
-  <data name="lblCPry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 15</value>
-  </data>
-  <data name="lblCPry.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="lblCPry.Text" xml:space="preserve">
-    <value>PROYECTO</value>
-  </data>
-  <data name="&gt;&gt;lblCPry.Name" xml:space="preserve">
-    <value>lblCPry</value>
-  </data>
-  <data name="&gt;&gt;lblCPry.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblCPry.Parent" xml:space="preserve">
-    <value>tabCar</value>
-  </data>
-  <data name="&gt;&gt;lblCPry.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="checkListCPry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 22</value>
-  </data>
-  <data name="checkListCPry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 148</value>
-  </data>
-  <data name="checkListCPry.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;dgDoc.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;checkListCPry.Name" xml:space="preserve">
-    <value>checkListCPry</value>
-  </data>
-  <data name="&gt;&gt;checkListCPry.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkListCPry.Parent" xml:space="preserve">
-    <value>tabCar</value>
-  </data>
-  <data name="&gt;&gt;checkListCPry.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="btnNCli.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>

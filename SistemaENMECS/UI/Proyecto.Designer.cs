@@ -61,8 +61,8 @@
             this.lblCPry = new System.Windows.Forms.Label();
             this.checkListCPry = new System.Windows.Forms.CheckedListBox();
             this.tabCot = new System.Windows.Forms.TabPage();
-            this.btnNCli = new System.Windows.Forms.Button();
             this.dgDoc = new System.Windows.Forms.DataGridView();
+            this.btnNCli = new System.Windows.Forms.Button();
             this.tabCarpeta.SuspendLayout();
             this.tabNom.SuspendLayout();
             this.tabCar.SuspendLayout();
@@ -284,6 +284,7 @@
             resources.ApplyResources(this.checkListCPry, "checkListCPry");
             this.checkListCPry.Name = "checkListCPry";
             this.checkListCPry.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkListCPry_ItemCheck);
+            this.checkListCPry.SelectedIndexChanged += new System.EventHandler(this.cbEstatus_SelectedIndexChanged);
             // 
             // tabCot
             // 
@@ -291,15 +292,6 @@
             this.tabCot.Controls.Add(this.dgDoc);
             resources.ApplyResources(this.tabCot, "tabCot");
             this.tabCot.Name = "tabCot";
-            // 
-            // btnNCli
-            // 
-            this.btnNCli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(226)))), ((int)(((byte)(101)))));
-            this.btnNCli.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.btnNCli, "btnNCli");
-            this.btnNCli.Name = "btnNCli";
-            this.btnNCli.UseVisualStyleBackColor = false;
-            this.btnNCli.Click += new System.EventHandler(this.btnNCli_Click);
             // 
             // dgDoc
             // 
@@ -310,6 +302,15 @@
             this.dgDoc.Name = "dgDoc";
             this.dgDoc.ReadOnly = true;
             this.dgDoc.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDoc_CellContentDoubleClick);
+            // 
+            // btnNCli
+            // 
+            this.btnNCli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(226)))), ((int)(((byte)(101)))));
+            this.btnNCli.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.btnNCli, "btnNCli");
+            this.btnNCli.Name = "btnNCli";
+            this.btnNCli.UseVisualStyleBackColor = false;
+            this.btnNCli.Click += new System.EventHandler(this.btnNCli_Click);
             // 
             // Proyecto
             // 

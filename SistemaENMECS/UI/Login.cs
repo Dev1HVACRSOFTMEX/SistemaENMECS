@@ -7,12 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Management;
+using System.Configuration;
 using SistemaENMECS.BLL;
 
 namespace SistemaENMECS.UI
 {
     public partial class Login : Form
     {
+        lecturaEscritura objleerEscribir = new lecturaEscritura();
+        private ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BaseBoard");
+        private string serial = string.Empty;
+        private string manufacturer = string.Empty;
+        private string product = string.Empty;
+        private string v1 = string.Empty;
+        private string v2 = string.Empty;
+        private string v3 = string.Empty;
+
+
         public Login()
         {
             InitializeComponent();
@@ -27,6 +39,11 @@ namespace SistemaENMECS.UI
         {
             _Usuario user = new _Usuario();
             _TipoCambio tipoCambio = new _TipoCambio();
+            _Configuracion cfg = new _Configuracion();
+
+            cfg.CgIdent = ConfigurationManager.AppSettings["CgIdent"];
+            cfg.consultaUno();
+
             string hoy1 = DateTime.Today.Day.ToString().PadLeft(2, '0') + "/" + DateTime.Today.Month.ToString().PadLeft(2, '0') + "/" + DateTime.Today.Year.ToString() + " 00:00:00";
             string hoy2 = DateTime.Today.Day.ToString().PadLeft(2, '0') + "/" + DateTime.Today.Month.ToString().PadLeft(2, '0') + "/" + DateTime.Today.Year.ToString() + " 23:59:59";
 
@@ -42,41 +59,53 @@ namespace SistemaENMECS.UI
             tipoCambio.FeFin = Convert.ToDateTime(hoy2);
 
             int ds = (int)DateTime.Today.DayOfWeek;
-
-            if (txtUsuario.Text.Trim() == user.UsUsuario.Trim() && hash.Trim() == user.UsPassword.Trim())
+            if (user.UsUsuario == null)
+                MessageBox.Show("Usuario o Contraseña incorrecto, verificar datos");
+            else
             {
-                //if (DateTime.Today.DayOfWeek.ToString().Substring(0, 1) != "S")
-                if (ds >= 1 && ds <= 5)
+                if (txtUsuario.Text.Trim() == user.UsUsuario.Trim() && hash.Trim() == user.UsPassword.Trim())
                 {
-                    tipoCambio.listado();
-                    if (tipoCambio.listTiC.Count == 0)
+                    //if (DateTime.Today.DayOfWeek.ToString().Substring(0, 1) != "S")
+                    if (ds >= 1 && ds <= 5)
                     {
-                        MessageBox.Show("Es importante colocar el tipo de cambio del día de hoy del Diario Oficial de la Federación.");
-                        ban = "S";
+                        tipoCambio.listado();
+                        if (tipoCambio.listTiC.Count == 0)
+                        {
+                            MessageBox.Show("Es importante colocar el tipo de cambio del día de hoy del Diario Oficial de la Federación.");
+                            ban = "S";
+                        }
                     }
-                }
-                if (res == "" && ban == "S")
-                    usuarioCache.nombreUsuario = user.UsUsuario;
-                else
-                    usuarioCache.nombreUsuario = "";
-                if (usuarioCache.nombreUsuario != "")
-                {
-                    if (user.UsPerfil == "ADMIN")
+                    if (res == "" && ban == "S")
                     {
-                        Admin ventana = new Admin();
-                        ventana.ShowDialog();
+                        usuarioCache.nombreUsuario = user.UsUsuario;
+                        usuarioCache.idConfig = cfg.CgIdent;
+                        usuarioCache.pathPry = cfg.CgPathPry;
+                        usuarioCache.pathCot = cfg.CgPathCot;
+                        usuarioCache.pathCotDf = ConfigurationManager.AppSettings["pathCotDf"];
                     }
-                    else if (user.UsPerfil == "VENTA")
+                    else
+                        usuarioCache.nombreUsuario = "";
+                    if (usuarioCache.nombreUsuario != "")
                     {
-                        Ventas ventana = new Ventas();
-                        ventana.Show();
+                        if (user.UsPerfil == "ADMIN")
+                        {
+                            Admin ventana = new Admin();
+                            this.Hide();
+                            ventana.Show();
+                        }
+                        else if (user.UsPerfil == "VENTA")
+                        {
+                            Ventas ventana = new Ventas();
+                            this.Hide();
+                            ventana.Show();
+                        }
                     }
+                    else
+                        MessageBox.Show("Usuario o Contraseña incorrecto, verificar datos");
                 }
                 else
                     MessageBox.Show("Usuario o Contraseña incorrecto, verificar datos");
             }
-            else
-                MessageBox.Show("Usuario o Contraseña incorrecto, verificar datos");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -123,6 +152,53 @@ namespace SistemaENMECS.UI
                 if (txtUsuario.Text != "" && txtPassword.Text != "")
                     btnAceptar_Click(sender, e);
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            foreach (ManagementObject mo in mos.Get())
+            {
+                try
+                {
+                    serial = mo.GetPropertyValue("SerialNumber").ToString();
+                    manufacturer = mo.GetPropertyValue("Manufacturer").ToString();
+                    product = mo.GetPropertyValue("Product").ToString();
+                }
+                catch
+                { }
+            }
+
+            v1 = Convert.ToString(objleerEscribir.asignarTextos("v1:", "ini.ini"));
+            v2 = Convert.ToString(objleerEscribir.asignarTextos("v2:", "ini.ini"));
+            v3 = Convert.ToString(objleerEscribir.asignarTextos("v3:", "ini.ini"));
+
+            if (serial != v1)
+            {
+                MessageBox.Show("Este equipo no tiene autorización de uso de licencia HVAC/R Software", "Warning",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Exclamation,
+                MessageBoxDefaultButton.Button1);
+                Close();
+            }
+
+            if (manufacturer != v2)
+            {
+                MessageBox.Show("Este equipo no tiene autorización de uso de licencia HVAC/R Software", "Warning",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Exclamation,
+                MessageBoxDefaultButton.Button1);
+                Close();
+            }
+
+            if (product != v3)
+            {
+                MessageBox.Show("Este equipo no tiene autorización de uso de licencia HVAC/R Software", "Warning",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Exclamation,
+                MessageBoxDefaultButton.Button1);
+                Close();
+            }
+
         }
     }
 }

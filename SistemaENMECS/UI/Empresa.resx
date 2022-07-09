@@ -122,7 +122,7 @@
     <value>12, 54</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>630, 10</value>
+    <value>700, 10</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
@@ -259,7 +259,7 @@
     <value>20</value>
   </data>
   <data name="txtLogo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>540, 21</value>
+    <value>610, 21</value>
   </data>
   <data name="txtLogo.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -313,7 +313,7 @@
     <value>True</value>
   </data>
   <data name="txtLey1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>540, 42</value>
+    <value>610, 42</value>
   </data>
   <data name="txtLey1.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -409,7 +409,7 @@
     <value>Popup</value>
   </data>
   <data name="btnGuardar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>567, 326</value>
+    <value>637, 326</value>
   </data>
   <data name="btnGuardar.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -436,7 +436,7 @@
     <value>True</value>
   </data>
   <data name="lblPrefijo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>288, 240</value>
+    <value>331, 240</value>
   </data>
   <data name="lblPrefijo.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 15</value>
@@ -460,7 +460,7 @@
     <value>6</value>
   </data>
   <data name="txtPre.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 237</value>
+    <value>407, 237</value>
   </data>
   <data name="txtPre.MaxLength" type="System.Int32, mscorlib">
     <value>5</value>
@@ -487,7 +487,7 @@
     <value>True</value>
   </data>
   <data name="lblPrePry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>466, 240</value>
+    <value>536, 240</value>
   </data>
   <data name="lblPrePry.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 15</value>
@@ -511,7 +511,7 @@
     <value>4</value>
   </data>
   <data name="txtPrePry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>567, 237</value>
+    <value>637, 237</value>
   </data>
   <data name="txtPrePry.MaxLength" type="System.Int32, mscorlib">
     <value>5</value>
@@ -559,13 +559,13 @@
     <value>gbAsoCarp</value>
   </data>
   <data name="&gt;&gt;lblGrupo.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="cbGcIdent.Location" type="System.Drawing.Point, System.Drawing">
     <value>115, 29</value>
   </data>
   <data name="cbGcIdent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 23</value>
+    <value>169, 23</value>
   </data>
   <data name="cbGcIdent.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -580,13 +580,13 @@
     <value>gbAsoCarp</value>
   </data>
   <data name="&gt;&gt;cbGcIdent.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="lblGrCot.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lblGrCot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>263, 32</value>
+    <value>303, 32</value>
   </data>
   <data name="lblGrCot.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 15</value>
@@ -607,13 +607,13 @@
     <value>gbAsoCarp</value>
   </data>
   <data name="&gt;&gt;lblGrCot.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="cbGrCot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>349, 29</value>
+    <value>411, 29</value>
   </data>
   <data name="cbGrCot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 23</value>
+    <value>188, 23</value>
   </data>
   <data name="cbGrCot.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -628,13 +628,13 @@
     <value>gbAsoCarp</value>
   </data>
   <data name="&gt;&gt;cbGrCot.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="lblLey4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lblLey4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 199</value>
+    <value>12, 188</value>
   </data>
   <data name="lblLey4.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 15</value>
@@ -667,7 +667,7 @@
     <value>True</value>
   </data>
   <data name="txtLey4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>540, 42</value>
+    <value>610, 42</value>
   </data>
   <data name="txtLey4.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>
@@ -684,11 +684,59 @@
   <data name="&gt;&gt;txtLey4.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="cbCrCot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>411, 65</value>
+  </data>
+  <data name="cbCrCot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 23</value>
+  </data>
+  <data name="cbCrCot.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;cbCrCot.Name" xml:space="preserve">
+    <value>cbCrCot</value>
+  </data>
+  <data name="&gt;&gt;cbCrCot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbCrCot.Parent" xml:space="preserve">
+    <value>gbAsoCarp</value>
+  </data>
+  <data name="&gt;&gt;cbCrCot.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>303, 68</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 15</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Carpeta Default</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>gbAsoCarp</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="gbAsoCarp.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 279</value>
   </data>
   <data name="gbAsoCarp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>512, 70</value>
+    <value>616, 100</value>
   </data>
   <data name="gbAsoCarp.TabIndex" type="System.Int32, mscorlib">
     <value>43</value>
@@ -718,7 +766,7 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>654, 361</value>
+    <value>734, 391</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9pt</value>

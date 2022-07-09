@@ -88,7 +88,7 @@ namespace SistemaENMECS.UI
             docConcepto.CoNumero = 0;
             docConcepto.listado();
 
-            config.CgIdent = "CFG01";
+            config.CgIdent = usuarioCache.idConfig;
             config.consultaUno();
 
             contextAgregar.Visible = false;

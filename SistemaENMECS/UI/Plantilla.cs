@@ -27,7 +27,7 @@ namespace SistemaENMECS.UI
             idPa = PaIdent;
             m = mod;
 
-            cfg.CgIdent = "CFG01";
+            cfg.CgIdent = usuarioCache.idConfig;
             cfg.consultaUno();
 
             if (modo.update == m)

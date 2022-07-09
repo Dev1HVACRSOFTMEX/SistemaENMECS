@@ -16,10 +16,16 @@ namespace SistemaENMECS.BLL
     static class usuarioCache
     {
         public static string nombreUsuario;
+        public static string idConfig;
+        public static string pathPry;
+        public static string pathCot;
+        public static string pathCotDf;
 
         public static void Inicializar()
         {
             nombreUsuario = "";
+            pathPry = "";
+            pathCot = "";
         }
     }
 
@@ -2367,7 +2373,9 @@ namespace SistemaENMECS.BLL
         public string EmPrefijo { get; set; }
         public string EmPrefijoPry { get; set; }
         public string EmGrIdent { get; set; }
+        public string EmCrIdent { get; set; }
         public string EmGrIdCot { get; set; }
+        public string EmCrIdCot { get; set; }
         public string EmActivo { get; set; }
         //AUDITORIA
         public string EmAudUsuCre { get; set; }
@@ -2429,7 +2437,9 @@ namespace SistemaENMECS.BLL
             empresa.EmPrefijo = EmPrefijo;
             empresa.EmPrefijoPry = EmPrefijoPry;
             empresa.EmGrIdent = EmGrIdent;
+            empresa.EmCrIdent = EmCrIdent == null ? "" : EmCrIdent;
             empresa.EmGrIdCot = EmGrIdCot;
+            empresa.EmCrIdCot = EmCrIdCot == null ? "" : EmCrIdCot;
             empresa.EmActivo = "A";
 
             empresa.EmAudUsuCre = EmAudUsuCre;
@@ -2469,7 +2479,9 @@ namespace SistemaENMECS.BLL
             empresa.EmPrefijo = EmPrefijo;
             empresa.EmPrefijoPry = EmPrefijoPry;
             empresa.EmGrIdent = EmGrIdent;
+            empresa.EmCrIdent = EmCrIdent == null ? "" : EmCrIdent;
             empresa.EmGrIdCot = EmGrIdCot;
+            empresa.EmCrIdCot = EmCrIdCot == null ? "" : EmCrIdCot;
             empresa.EmActivo = EmActivo;
 
             empresa.EmAudUsuMod = EmAudUsuMod;
@@ -2529,7 +2541,9 @@ namespace SistemaENMECS.BLL
                 EmPrefijo = item.EmPrefijo;
                 EmPrefijoPry = item.EmPrefijoPry;
                 EmGrIdent = item.EmGrIdent;
+                EmCrIdent = item.EmCrIdent;
                 EmGrIdCot = item.EmGrIdCot;
+                EmCrIdCot = item.EmCrIdCot;
                 EmActivo = item.EmActivo;
             }
 

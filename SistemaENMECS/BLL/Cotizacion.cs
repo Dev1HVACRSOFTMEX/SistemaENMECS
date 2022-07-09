@@ -7,6 +7,7 @@ using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using SistemaENMECS.DAL;
+using System.Diagnostics;
 
 namespace SistemaENMECS.BLL
 {
@@ -38,6 +39,9 @@ namespace SistemaENMECS.BLL
             _DocNota cotNot = new _DocNota();
             _DocConcepto cotCon = new _DocConcepto();
             _DocCPartida cotPar = new _DocCPartida();
+            _Empresa emp = new _Empresa();
+            _Proyecto pry = new _Proyecto();
+            _Carpeta crp = new _Carpeta();
 
             //string[] tipo00 = new string[] { "DCONG", "DCVOF", "DCFPA", "DCCPA", "DCTRE", "DCNTR", "DCTEN", "DCNTE", "DCCNI", "DNTIM", "DCGAS", "DCLGA" };
             string[] tipo00 = new string[] { "DCCTM", "DCCVF", "DCCFP", "DCCCP", "DCCTE", "DCCPE", "DCCSE", "DCNIM" };
@@ -65,11 +69,40 @@ namespace SistemaENMECS.BLL
             cotCon.DoIdent = DoIdent;
             cotCon.CoNumero = 0;
             cotCon.listado();
+
+            pry.PyNumero = cot.PyNumero;
+            pry.PyNombre = "";
+            pry.DiNombre = "";
+            pry.consultaUno();
+
+            emp.EmIdent = cot.EmIdent;
+            emp.consultaUno();
+
+            crp.GcIdent = emp.EmGrIdCot;
+            crp.CrIdent = emp.EmCrIdCot;
+            crp.CrNombre = "";
+            crp.consultaUno();
             
-            string nombrePDF = "Reporte.pdf";
+            string pathPDF = usuarioCache.pathPry + pry.PyNomCarp;
+
+            if (File.Exists(pathPDF))
+            {
+                pathPDF = pathPDF + "\\" + crp.CrNombre;
+                if (!File.Exists(pathPDF))
+                    Directory.CreateDirectory(pathPDF);
+            }
+            else
+            {
+                pathPDF = usuarioCache.pathCotDf;
+                if (!File.Exists(pathPDF))
+                    Directory.CreateDirectory(pathPDF);
+            }
+
+            string nombrePDF = cot.DoFolio.Trim() + ".pdf";
+            string pathCompleto = pathPDF.Trim() + "\\" + nombrePDF.Trim();
             float ultP = 0;
             int size18 = 18, size15 = 15, size11 = 11, size10 = 10, size09 = 9, size08 = 8, size07 = 7, size06 = 6;
-            FileStream fs = new FileStream(nombrePDF, FileMode.Create);
+            FileStream fs = new FileStream(pathCompleto, FileMode.Create);
             Document doc = new Document(PageSize.LETTER);
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
             writer.PageEvent = new PageEventHelper();
@@ -1457,6 +1490,8 @@ namespace SistemaENMECS.BLL
             
             writer.SetOpenAction(action);
             doc.Close();
+
+            Process.Start(pathCompleto);
         }
 
         public void generaEncabezadoCot(_Documento cot, PdfContentByte cb)

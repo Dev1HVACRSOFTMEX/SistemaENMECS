@@ -311,7 +311,9 @@ namespace SistemaENMECS.BLL
         public string EmPrefijo;
         public string EmPrefijoPry;
         public string EmGrIdent;
+        public string EmCrIdent;
         public string EmGrIdCot;
+        public string EmCrIdCot;
         public string EmActivo;
         //AUDITORIA
         public string EmAudUsuCre;

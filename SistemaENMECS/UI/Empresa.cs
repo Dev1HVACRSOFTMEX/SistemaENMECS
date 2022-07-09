@@ -16,6 +16,7 @@ namespace SistemaENMECS.UI
         private _Empresa empresa = new _Empresa();
         private _Directorio directorio = new _Directorio();
         private _GrCarp grcarp = new _GrCarp();
+        private _Carpeta carpeta = new _Carpeta();
         private string idEmp;
         private modo m;
 
@@ -62,12 +63,15 @@ namespace SistemaENMECS.UI
             }
             if (idx > 0)
                 cbDirectorio.SelectedIndex = 0;
-
+            
             cbGcIdent.Items.Clear();
             cbGcIdent.Items.Insert(0, "<Selección>");
             cbGrCot.Items.Clear();
             cbGrCot.Items.Insert(0, "<Selección>");
-            int idGc = -1, idGrCot = -1;
+            cbCrCot.Items.Clear();
+            cbCrCot.Items.Insert(0, "<Seleccion>");
+
+            int idGc = 0, idGrCot = 0;
             idx = 0;
             foreach(GRCARP item in grcarp.listGrC)
             {
@@ -92,8 +96,8 @@ namespace SistemaENMECS.UI
                 txtLey1.Text = empresa.EmLeyenda01;
                 txtLey4.Text = empresa.EmLeyenda04;
                 cbDirectorio.SelectedIndex = indice;
-                cbGcIdent.SelectedIndex = idGc == -1 ? 0 : idGc;
-                cbGrCot.SelectedIndex = idGrCot == -1 ? 0 : idGrCot;
+                cbGcIdent.SelectedIndex = idGc == 0 ? 0 : idGc;
+                cbGrCot.SelectedIndex = idGrCot == 0 ? 0 : idGrCot;
                 txtPre.Text = empresa.EmPrefijo;
                 txtPrePry.Text = empresa.EmPrefijoPry;
                 checkActivo.Checked = empresa.EmActivo == "A" ? true : false;
@@ -124,11 +128,13 @@ namespace SistemaENMECS.UI
             empresa.EmLeyenda04 = txtLey4.Text.Trim();
             empresa.EmLeyenda05 = "";
             empresa.DiNumero = cbDirectorio.SelectedIndex == 0 ? "" : directorio.listDir[cbDirectorio.SelectedIndex - 1].DiNumero.Trim();
-            empresa.EmGrIdent = grcarp.listGrC[cbGcIdent.SelectedIndex - 1].GcIdent.Trim();
+            //empresa.EmGrIdent = grcarp.listGrC[cbGcIdent.SelectedIndex - 1].GcIdent.Trim();
             empresa.EmPrefijo = txtPre.Text;
             empresa.EmPrefijoPry = txtPrePry.Text;
             empresa.EmGrIdent = cbGcIdent.SelectedIndex == 0 ? "" : grcarp.listGrC[cbGcIdent.SelectedIndex - 1].GcIdent;
+            empresa.EmCrIdent = "";
             empresa.EmGrIdCot = cbGrCot.SelectedIndex == 0 ? "" : grcarp.listGrC[cbGrCot.SelectedIndex - 1].GcIdent;
+            empresa.EmCrIdCot = cbCrCot.SelectedIndex == 0 ? "" : carpeta.listCar[cbCrCot.SelectedIndex - 1].CrIdent;
             empresa.EmActivo = checkActivo.Checked ? "A" : "I";
             if (modo.insert == m)
             {
@@ -146,6 +152,31 @@ namespace SistemaENMECS.UI
                     this.Close();
                 else
                     MessageBox.Show(res);
+            }
+        }
+
+        private void cbGrCot_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbGrCot.SelectedIndex > 0)
+            {
+                int idx = cbGrCot.SelectedIndex - 1;
+                carpeta.GcIdent = grcarp.listGrC[idx].GcIdent;
+                carpeta.CrIdent = "";
+                carpeta.CrNombre = "";
+                carpeta.listado();
+
+                cbCrCot.Items.Clear();
+                cbCrCot.Items.Insert(0, "<Seleccion>");
+                int i = 1, sel = 0;
+                foreach (CARPETA item in carpeta.listCar)
+                {
+                    cbCrCot.Items.Insert(i, item.CrNombre);
+                    if (item.CrIdent == empresa.EmCrIdCot)
+                        sel = i;
+                    i++;
+                }
+                if (cbCrCot.Items.Count > 0)
+                    cbCrCot.SelectedIndex = sel;
             }
         }
     }
